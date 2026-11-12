@@ -33,9 +33,9 @@ describe('OrcaRuntimeService', () => {
       expect(result.resolvedPath).toBe(tempRoot)
       expect(result.pathFlavor).toBe(process.platform === 'win32' ? 'win32' : 'posix')
       expect(result.entries).toEqual([
+        { name: 'readme.md', isDirectory: false, isSymlink: false },
         { name: 'alpha', isDirectory: true, isSymlink: false },
-        { name: 'zeta', isDirectory: true, isSymlink: false },
-        { name: 'readme.md', isDirectory: false, isSymlink: false }
+        { name: 'zeta', isDirectory: true, isSymlink: false }
       ])
     } finally {
       await rm(tempRoot, { recursive: true, force: true })

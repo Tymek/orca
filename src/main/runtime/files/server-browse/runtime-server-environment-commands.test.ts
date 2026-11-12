@@ -31,13 +31,13 @@ describe('RuntimeServerEnvironmentCommands.browseDirectory', () => {
       const result = await new RuntimeServerEnvironmentCommands().browseDirectory(root)
 
       expect(result.entries).toEqual([
-        { name: 'linked-dir', isDirectory: true, isSymlink: true },
-        { name: 'real-dir', isDirectory: true, isSymlink: false },
         { name: 'broken-link', isDirectory: false, isSymlink: true },
         { name: 'linked-file', isDirectory: false, isSymlink: true },
         { name: 'loop-a', isDirectory: false, isSymlink: true },
         { name: 'loop-b', isDirectory: false, isSymlink: true },
-        { name: 'real-file.txt', isDirectory: false, isSymlink: false }
+        { name: 'real-file.txt', isDirectory: false, isSymlink: false },
+        { name: 'linked-dir', isDirectory: true, isSymlink: true },
+        { name: 'real-dir', isDirectory: true, isSymlink: false }
       ])
     }
   )
